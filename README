@@ -4,3 +4,22 @@ As code-buddies we designed a challenge!
 The challenge is to solve 5 DS problems daily and either of the one who misses to solve a problem will pay the other person Rs.50/problem missed as penalty.
 
 The link of the problems is : https://practice.geeksforgeeks.org/batch/must-do-1/
+
+If you're joning the challenge, following are the next steps:
+
+	- Fork this repo to your GitHub Account
+
+	- Make a subdirectory with your name under the directory for the particular data-structure and put your codes in that directory
+	  e.g.	├── Array
+		│   ├── Himadri
+		│   │   ├── binary_search.cpp
+		│   │   ├── equilibrium_point.c
+		│   └── Mrityunjay
+		│       ├── binarySearch.cpp
+		│       ├── boolMatrix.cpp
+
+	- Once you are done with your 5 problems of the day, push your code to your forked repo and then creat a pull request to the original repo.
+
+
+Happy coding :)
+	 
