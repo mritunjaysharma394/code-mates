@@ -12,30 +12,34 @@ using namespace std;
 *   NOTE: You must return dynamically allocated array
 */
 
-void dfs(int i, bool visited[], vector<int> visited_nodes, vector<int> adj[]) {
+void topological_sort(int i, vector<int> adj[], bool visited[], stack<int> &s){
     visited[i] = true;
-    for(auto edge=adj[i].begin(); edge!=adj[i].end(); edge++){
-        if (visited[*edge] ==false) dfs(*edge, visited, visited_nodes, adj);
+    for(vector<int>::iterator itr=adj[i].begin(); itr!=adj[i].end();itr++){
+        if(!visited[*itr]) topological_sort(*itr, adj, visited, s);
     }
-    visited_nodes.push_back(i);
+    s.push(i);
+
 }
 
-int* topoSort(int V, vector<int> adj[])
+
+int* topoSort(int N, vector<int> graph[])
 {
-    // Your code here
-    bool visited[V] = {false};
-    int ordering[V] = {0};
-    int index = V-1;
-    for(int i=0; i<V; i++){
-        if(visited[i]==false) {
-            vector<int> visited_nodes;
-            dfs(i, visited, visited_nodes, adj);
-            for(auto j= visited_nodes.begin(); j!=visited_nodes.end(); j++){
-                ordering[index] = *j;
-                index--;
-            }
-        }
+    stack<int> s;
+    bool visited[N] = {false};
+    int *ordering = new int[N];
+    for(int i=0; i<N; i++) {
+        if(!visited[i]) topological_sort(i, graph, visited, s);
     }
+    int i = 0;
+    while(!s.empty() && i<N){
+        ordering[i++] = s.top();
+        s.pop();
+    }
+    return ordering;
+
+
+
+
 }
 
 
